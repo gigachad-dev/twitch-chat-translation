@@ -6,7 +6,8 @@ interface TranslateResponse {
   pronunciation: string
 }
 
-setCORS('https://cors-anywhere.herokuapp.com/')
+// setCORS('https://cors-anywhere.herokuapp.com/')
+setCORS('http://proxy.crashmax.ru/?url=')
 
 window.addEventListener('load', () => {
   const chat = document.querySelector('.chat-scrollable-area__message-container')
