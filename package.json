@@ -1,8 +1,8 @@
 {
-  "name": "webpack-userscript-template",
+  "name": "twitch-chat-translation",
   "version": "0.0.1",
-  "description": "webpack-userscript-template",
-  "homepage": "https://crashmax-off.github.io/webpack-userscript-template/",
+  "description": "twitch-chat-translation",
+  "homepage": "https://crashmax-off.github.io/twitch-chat-translation/",
   "scripts": {
     "dev": "webpack server --node-env development",
     "build": "webpack --node-env production --progress",
@@ -17,7 +17,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/crashmax-dev/webpack-userscript-template.git"
+    "url": "git+https://github.com/crashmax-dev/twitch-chat-translation.git"
   },
   "dependencies": {
     "redom": "^3.27.1"
