@@ -1,6 +1,11 @@
 import translate, { setCORS } from 'google-translate-api-browser'
 import './styles.scss'
 
+interface TranslateResponse {
+  text: string
+  pronunciation: string
+}
+
 setCORS('https://cors-anywhere.herokuapp.com/')
 
 window.addEventListener('load', () => {
@@ -30,25 +35,21 @@ window.addEventListener('load', () => {
     target.addEventListener('mouseenter', (event) => {
       const el = event.currentTarget as HTMLElement
       const attr = el.getAttribute('request')
+      if (attr) return
 
-      if (attr) {
-        return
-      }
+      const message = el.querySelector('.text-fragment')!.textContent!
+      if (/[а-яА-Я]/gmi.test(message)) return
 
       el.setAttribute('request', 'load')
-      const message = el.querySelector('.text-fragment')!.textContent!
 
-      googleTranslate(message)
-        .then((res) => {
-          // el.setAttribute('request', 'done')
-          el.setAttribute('role', 'tooltip')
-          el.setAttribute('data-microtip-size', 'fit')
-          el.setAttribute('data-microtip-position', 'top')
-          el.setAttribute('aria-label', res.text)
-        })
-        .catch(() => {
-          // el.setAttribute('request', 'fail')
-        })
+      translate<TranslateResponse>(message, {
+        to: 'ru'
+      }).then((res) => {
+        el.setAttribute('role', 'tooltip')
+        el.setAttribute('data-microtip-size', 'fit')
+        el.setAttribute('data-microtip-position', 'top')
+        el.setAttribute('aria-label', res.text)
+      })
     })
 
     target.addEventListener('click', (event) => {
@@ -60,34 +61,3 @@ window.addEventListener('load', () => {
     })
   }
 })
-
-interface TranslateResponse {
-  text: string
-  pronunciation: string
-}
-
-async function googleTranslate(message: string): Promise<TranslateResponse> {
-  return await translate<TranslateResponse>(message, {
-    to: 'ru'
-  })
-
-  // @le_xot (ле_шот)
-  // const body = new URLSearchParams({
-  //   text,
-  //   auth_key: '3fdbfe4f-56a5-07ad-77f5-afcfc6589cec:fx',
-  //   target_lang: 'RU'
-  // })
-
-  // try {
-  //   const res = await fetch('https://api-free.deepl.com/v2/translate', {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-  //     body
-  //   })
-
-  //   const data = await res.json()
-  //   console.log(data)
-  // } catch (err) {
-  //   console.log(err)
-  // }
-}
