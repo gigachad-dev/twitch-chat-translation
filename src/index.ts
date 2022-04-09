@@ -27,7 +27,6 @@ window.addEventListener('load', () => {
   }
 
   function addListeners(target: HTMLElement): void {
-    // eslint-disable-next-line @typescript-eslint/no-misused-promises
     target.addEventListener('mouseenter', (event) => {
       const el = event.currentTarget as HTMLElement
       const attr = el.getAttribute('request')
@@ -52,8 +51,13 @@ window.addEventListener('load', () => {
         })
     })
 
-    // target.addEventListener('mouseleave', (event) => { console.log(event) })
-    // target.addEventListener('click', (event) => { console.log(event) })
+    target.addEventListener('click', (event) => {
+      const el = event.currentTarget as HTMLElement
+      const message = el.getAttribute('aria-label')
+      if (message) {
+        navigator.clipboard.writeText(message)
+      }
+    })
   }
 })
 
