@@ -7,7 +7,8 @@
     "dev": "webpack server --node-env development",
     "build": "webpack --node-env production --progress",
     "lint": "eslint . --ext ts",
-    "lint:fix": "eslint . --ext ts --fix"
+    "lint:fix": "eslint . --ext ts --fix",
+    "postinstall": "patch-package"
   },
   "author": {
     "name": "Vitalij Ryndin",
@@ -20,6 +21,8 @@
     "url": "git+https://github.com/crashmax-dev/twitch-chat-translation.git"
   },
   "dependencies": {
+    "google-translate-api-browser": "^1.1.71",
+    "microtip": "^0.2.2",
     "redom": "^3.27.1"
   },
   "devDependencies": {
@@ -37,6 +40,7 @@
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.2.1",
     "css-loader": "^5.2.7",
+    "patch-package": "^6.4.7",
     "sass-loader": "^10.2.1",
     "style-loader": "^2.0.0",
     "terser-webpack-plugin": "^4.2.3",

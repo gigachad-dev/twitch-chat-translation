@@ -1,0 +1,15 @@
+diff --git a/node_modules/google-translate-api-browser/dist/index.d.ts b/node_modules/google-translate-api-browser/dist/index.d.ts
+index 412908d..a45f106 100644
+--- a/node_modules/google-translate-api-browser/dist/index.d.ts
++++ b/node_modules/google-translate-api-browser/dist/index.d.ts
+@@ -1,8 +1,8 @@
+ export declare const setCORS: (CORSURL: string) => typeof translate;
+-export declare function translate(text: string, opts_?: {
++export declare function translate<T>(text: string, opts_?: {
+     from?: string;
+     to?: string;
+     tld?: string;
+     raw?: boolean;
+-}): Promise<{}>;
++}): Promise<T>;
+ export default translate;
