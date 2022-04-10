@@ -45,7 +45,7 @@ window.addEventListener('load', () => {
         .map((fragment) => fragment.innerText)
         .join(' ')
 
-      if (/[а-яА-Я]/gmi.test(message)) return
+      if (!message || /[а-яА-Я]/gmi.test(message)) return
 
       el.setAttribute('request', 'load')
 
