@@ -39,7 +39,12 @@ window.addEventListener('load', () => {
       const attr = el.getAttribute('request')
       if (attr) return
 
-      const message = el.querySelector('.text-fragment')!.textContent!
+      const textFragment = el.querySelectorAll('.text-fragment')
+      const message = Object
+        .values(textFragment)
+        .map((fragment) => fragment.textContent!)
+        .join(' ')
+
       if (/[а-яА-Я]/gmi.test(message)) return
 
       el.setAttribute('request', 'load')
