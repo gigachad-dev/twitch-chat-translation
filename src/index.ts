@@ -44,6 +44,7 @@ window.addEventListener('load', () => {
         .values(textFragment)
         .map((fragment) => fragment.innerText)
         .join(' ')
+        .trim()
 
       if (!message || /[а-яА-Я]/gmi.test(message)) return
 
