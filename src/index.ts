@@ -39,10 +39,10 @@ window.addEventListener('load', () => {
       const attr = el.getAttribute('request')
       if (attr) return
 
-      const textFragment = el.querySelectorAll('.text-fragment')
+      const textFragment = el.querySelectorAll<HTMLElement>('.text-fragment')
       const message = Object
         .values(textFragment)
-        .map((fragment) => fragment.textContent!)
+        .map((fragment) => fragment.innerText)
         .join(' ')
 
       if (/[а-яА-Я]/gmi.test(message)) return
