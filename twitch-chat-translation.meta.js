@@ -4,5 +4,5 @@
 // @author      Vitalij Ryndin
 // @description twitch-chat-translation
 // @homepage    https://crashmax-off.github.io/twitch-chat-translation/
-// @include     /^(http|https)://(www.twitch.tv).*$/
+// @include     /^(http|https)://(www.twitch.tv|canary.twitch.tv|release.twitch.tv).*$/
 // ==/UserScript==
