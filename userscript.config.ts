@@ -28,6 +28,6 @@ export const UserScriptConfig: IWebpackUserScript = {
     description: pkg.description,
     version: pkg.version,
     author: pkg.author.name,
-    include: '/^(http|https)://(www.twitch.tv).*$/'
+    include: '/^(http|https)://(www.twitch.tv|canary.twitch.tv|release.twitch.tv).*$/'
   }
 }
