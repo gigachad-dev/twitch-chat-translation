@@ -6,8 +6,9 @@ interface TranslateResponse {
   pronunciation: string
 }
 
+//! https://github.com/Rob--W/cors-anywhere#demo-server
 // setCORS('https://cors-anywhere.herokuapp.com/')
-setCORS('http://proxy.crashmax.ru/?url=')
+setCORS('https://proxy.crashmax.ru/')
 
 window.addEventListener('load', () => {
   const chat = document.querySelector('.chat-scrollable-area__message-container')
@@ -20,7 +21,7 @@ window.addEventListener('load', () => {
           const chatMessage = message.classList.contains('chat-line__message')
           const highlightMessage = message.querySelector('.chat-line__message-highlight')
 
-          if (chatMessage && highlightMessage) {
+          if (chatMessage && (NODE_ENV === 'development' || highlightMessage)) {
             addListeners(message)
           }
         }
