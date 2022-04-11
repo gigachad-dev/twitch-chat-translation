@@ -2,3 +2,4 @@
 /public
 /cors-anywhere
 *.config.ts
+**/*.js

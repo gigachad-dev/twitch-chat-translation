@@ -28,6 +28,13 @@ export const UserScriptConfig: IWebpackUserScript = {
     description: pkg.description,
     version: pkg.version,
     author: pkg.author.name,
-    include: '/^(http|https)://(www.twitch.tv|canary.twitch.tv|release.twitch.tv).*$/'
+    include: '/^(http|https)://(www.twitch.tv|canary.twitch.tv|release.twitch.tv).*$/',
+    require: 'https://openuserjs.org/src/libs/sizzle/GM_config.js',
+    grant: [
+      'GM_registerMenuCommand',
+      'GM_getValue',
+      'GM_setValue',
+      'GM_addStyle'
+    ]
   }
 }
