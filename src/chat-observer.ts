@@ -1,4 +1,4 @@
-import { getStore } from './settings'
+import Store from './store'
 
 interface ChatObserver {
   chat: HTMLElement
@@ -12,7 +12,7 @@ export function chatObserver({ chat, update }: ChatObserver): void {
         const message = element as HTMLElement
         const chatMessage = message.classList.contains('chat-line__message')
         const highlightMessage = message.querySelector('.chat-line__message-highlight')
-        const { self } = getStore()
+        const { self } = Store.value
 
         if (chatMessage && (self || highlightMessage)) {
           update(message)

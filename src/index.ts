@@ -1,5 +1,6 @@
 import { chatObserver } from './chat-observer'
 import { clickEvent, enterEvent } from './message-events'
+import './settings'
 import './styles.scss'
 
 window.addEventListener('load', () => {

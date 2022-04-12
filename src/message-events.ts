@@ -1,6 +1,6 @@
 import translate, { setCORS } from 'google-translate-api-browser'
-import { addToltip } from './tooltip'
-import { getStore } from './settings'
+import { addTooltip } from './tooltip'
+import Store from './store'
 
 setCORS('https://proxy.crashmax.ru/')
 
@@ -10,6 +10,9 @@ interface TranslateResponse {
 }
 
 export async function enterEvent(event: MouseEvent): Promise<void> {
+  const { enabled } = Store.value
+  if (!enabled) return
+
   const el = event.currentTarget as HTMLElement
   const attr = el.getAttribute('request')
   if (attr) return
@@ -26,14 +29,14 @@ export async function enterEvent(event: MouseEvent): Promise<void> {
   el.setAttribute('request', 'load')
 
   try {
-    const { to, from } = getStore()
+    const { to, from } = Store.value
     const { text } = await translate<TranslateResponse>(
       message, { to, from }
     )
 
-    addToltip(el, text)
+    addTooltip(el, text)
   } catch (err) {
-    addToltip(el, (err as Error).message)
+    addTooltip(el, (err as Error).message)
   }
 }
 

@@ -1,36 +1,5 @@
-const to = ['en', 'ru', 'kk', 'uk', 'ja'] as const
-const from = ['en', 'ru', 'kk', 'uk', 'ja', 'auto'] as const
-
-type ToLangs = typeof to[number]
-type FromLangs = typeof from[number]
-
-interface Store {
-  to: ToLangs
-  from: FromLangs
-  self: boolean
-}
-
-const STORE_KEY = 'twitch-chat-translation'
-const INITIAL_STORE: Store = {
-  to: 'ru',
-  from: 'en',
-  self: false
-}
-
-export function getStore(): Store {
-  const store = localStorage.getItem(STORE_KEY)
-
-  if (!store) {
-    saveStore(INITIAL_STORE)
-    return INITIAL_STORE
-  }
-
-  return JSON.parse(store) as Store
-}
-
-function saveStore(data: Store): void {
-  localStorage.setItem(STORE_KEY, JSON.stringify(data))
-}
+import Store, { to, from } from './store'
+import type { IStore } from './store'
 
 GM_config.init({
   id: 'Options',
@@ -43,14 +12,18 @@ GM_config.init({
           // @ts-ignore
           arr[id] = value
           return arr
-        }, {} as Store)
+        }, {} as IStore)
 
-      saveStore(options)
-      window.location.reload()
+      Store.write(options)
     },
-    reset: () => window.location.reload()
+    reset: () => Store.write()
   },
   fields: {
+    enabled: {
+      type: 'checkbox',
+      default: true,
+      label: 'Вкл/Выкл расширения'
+    },
     self: {
       type: 'checkbox',
       default: false,
