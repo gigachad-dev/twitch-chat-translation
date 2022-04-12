@@ -2,7 +2,7 @@
   "name": "twitch-chat-translation",
   "version": "0.0.1",
   "description": "twitch-chat-translation",
-  "homepage": "https://crashmax-dev.github.io/twitch-chat-translation/GM_config.js",
+  "homepage": "https://crashmax-dev.github.io/twitch-chat-translation/",
   "scripts": {
     "dev": "webpack server --node-env development",
     "build": "webpack --node-env production --progress",
