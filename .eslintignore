@@ -1,5 +1,5 @@
 /dist
 /public
-/cors-anywhere
+/server
 *.config.ts
 **/*.js

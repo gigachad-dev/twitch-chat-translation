@@ -7,15 +7,12 @@ import { DefinePlugin, Configuration } from 'webpack'
 import { UserScriptConfig } from './userscript.config'
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 
-const { scriptHeaders, scriptVersion, scriptHomePage, scriptFileName } = UserScriptConfig
+const { isDev, server, scriptHeaders, scriptVersion, scriptHomePage, scriptFileName } = UserScriptConfig
 const publicFolder = path.resolve(__dirname, 'public')
 const outputPath = path.resolve(__dirname, 'dist')
-const mode = process.env.NODE_ENV || 'development'
-const isDev = mode === 'development'
-const port = 8080
 
 module.exports = {
-  mode,
+  // mode,
   target: 'web',
   entry: path.join(__dirname, 'src/index.ts'),
   output: {
@@ -23,7 +20,7 @@ module.exports = {
     filename: `${scriptFileName}.js`
   },
   devServer: {
-    port,
+    port: server.port,
     https: true,
     writeToDisk: true,
     disableHostCheck: true,
@@ -66,7 +63,7 @@ module.exports = {
     new DefinePlugin({
       VERSION: JSON.stringify(scriptVersion),
       NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-      BASE_PATH: JSON.stringify(isDev ? `https://localhost:${port}/` : scriptHomePage)
+      BASE_PATH: JSON.stringify(isDev ? `${server.hostname}:${server.port}/` : scriptHomePage)
     }),
     new CopyWebpackPlugin({
       patterns: [
