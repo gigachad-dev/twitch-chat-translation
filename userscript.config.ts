@@ -51,6 +51,8 @@ export const UserScriptConfig: IWebpackUserScript = {
     version: pkg.version,
     author: pkg.author.name,
     include: 'https:\/\/*.twitch.tv\/*',
+    updateURL: `${pkg.homepage}${pkg.name}.meta.js`,
+    downloadURL: `${pkg.homepage}${pkg.name}.user.js`,
     require: GM_config,
     grant: [
       'GM_registerMenuCommand',
