@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name        twitch-chat-translation
-// @version     0.0.1
+// @version     1.0.0
 // @author      Vitalij Ryndin
 // @description twitch-chat-translation
 // @homepage    https://crashmax-dev.github.io/twitch-chat-translation/
-// @include     /^(http|https)://(www.twitch.tv|canary.twitch.tv|release.twitch.tv).*$/
+// @include     https://*.twitch.tv/*
 // @require     https://crashmax-dev.github.io/twitch-chat-translation/GM_config.js
 // @grant       GM_registerMenuCommand
 // @grant       GM_getValue
