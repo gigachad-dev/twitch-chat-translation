@@ -4,16 +4,37 @@ import './settings'
 import './styles.scss'
 
 window.addEventListener('load', () => {
-  const chat = document
-    .querySelector<HTMLElement>('.chat-scrollable-area__message-container')
+  const observe = chatMount()
+  const { history } = window
+  const { pushState, replaceState } = history
 
-  if (chat) {
-    chatObserver({
-      chat,
-      update: (message) => {
-        message.addEventListener('mouseenter', enterEvent)
-        message.addEventListener('click', clickEvent)
-      }
-    })
+  history.pushState = (...args) => {
+    pushState.apply(history, args)
+    observe()
   }
+
+  history.replaceState = (...args) => {
+    replaceState.apply(history, args)
+    observe()
+  }
+
+  observe()
 })
+
+function chatMount(): () => void {
+  const observer = chatObserver((message) => {
+    message.addEventListener('mouseenter', enterEvent)
+    message.addEventListener('click', clickEvent)
+  })
+
+  return () => {
+    const chat = document
+      .querySelector<HTMLElement>('.chat-scrollable-area__message-container')
+
+    if (chat) {
+      observer.observe(chat, {
+        childList: true
+      })
+    }
+  }
+}

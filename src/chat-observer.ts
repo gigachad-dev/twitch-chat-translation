@@ -1,11 +1,6 @@
 import Store from './store'
 
-interface ChatObserver {
-  chat: HTMLElement
-  update: (message: HTMLElement) => void
-}
-
-export function chatObserver({ chat, update }: ChatObserver): void {
+export function chatObserver(callback: (message: HTMLElement) => void): MutationObserver {
   const observer = new MutationObserver((mutations) => {
     for (const mutation of mutations) {
       for (const element of mutation.addedNodes) {
@@ -15,13 +10,11 @@ export function chatObserver({ chat, update }: ChatObserver): void {
         const { self } = Store.value
 
         if (chatMessage && (self || highlightMessage)) {
-          update(message)
+          callback(message)
         }
       }
     }
   })
 
-  observer.observe(chat, {
-    childList: true
-  })
+  return observer
 }
