@@ -19,6 +19,12 @@
   background: var(--microtio-arrow);
 }
 
+[aria-label][role~="tooltip"]:focus::before,
+[aria-label][role~="tooltip"]:focus::after {
+  opacity: 0;
+}
+
+
 html.tw-root--theme-light {
   --microtip-background: #111111;
   --microtip-color: #ffffff;
