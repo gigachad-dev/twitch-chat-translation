@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        twitch-chat-translation
-// @version     1.0.0
+// @version     1.1.0
 // @author      Vitalij Ryndin
 // @description twitch-chat-translation
 // @homepage    https://crashmax-dev.github.io/twitch-chat-translation/
