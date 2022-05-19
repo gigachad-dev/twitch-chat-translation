@@ -48,13 +48,15 @@ export interface IStore {
   from: FromLangs
   self: boolean
   enabled: boolean
+  clipboard: boolean
 }
 
 const initialStore: IStore = {
   to: to[1],
   from: to[0],
   self: false,
-  enabled: true
+  enabled: true,
+  clipboard: true
 }
 
 export default new Store(

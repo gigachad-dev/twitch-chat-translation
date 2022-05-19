@@ -42,8 +42,13 @@ export async function enterEvent(event: MouseEvent): Promise<void> {
 
 export function clickEvent(event: MouseEvent): void {
   const el = event.currentTarget as HTMLElement
-  const message = el.getAttribute('aria-label')
-  if (message) {
-    navigator.clipboard.writeText(message)
-  }
+  const originalMessage = el.textContent!.split(': ')[1]
+  const translatedMessage = el.getAttribute('aria-label') ?? ''
+  const { clipboard } = Store.value
+
+  navigator.clipboard.writeText(
+    clipboard
+      ? translatedMessage
+      : originalMessage
+  )
 }

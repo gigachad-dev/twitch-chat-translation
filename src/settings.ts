@@ -24,6 +24,11 @@ GM_config.init({
       default: true,
       label: 'Вкл/Выкл расширения'
     },
+    clipboard: {
+      type: 'checkbox',
+      default: true,
+      label: 'Копировать текст сообщения (оригинал/перевод)'
+    },
     self: {
       type: 'checkbox',
       default: false,
