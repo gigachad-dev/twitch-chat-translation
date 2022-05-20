@@ -43,7 +43,7 @@ export const from = ['en', 'ru', 'kk', 'uk', 'ja', 'auto'] as const
 type ToLangs = typeof to[number]
 type FromLangs = typeof from[number]
 
-export interface IStore {
+export interface ValuesStore {
   to: ToLangs
   from: FromLangs
   self: boolean
@@ -51,12 +51,42 @@ export interface IStore {
   clipboard: boolean
 }
 
-const initialStore: IStore = {
+const initialStore: ValuesStore = {
   to: to[1],
   from: to[0],
   self: false,
   enabled: true,
   clipboard: true
+}
+
+export const configFields: Record<string, Field> = {
+  enabled: {
+    type: 'checkbox',
+    default: initialStore.enabled,
+    label: 'Вкл/Выкл перевод'
+  },
+  clipboard: {
+    type: 'checkbox',
+    default: initialStore.clipboard,
+    label: 'Копировать текст сообщения (оригинал/перевод)'
+  },
+  self: {
+    type: 'checkbox',
+    default: initialStore.self,
+    label: 'Переводить собственные сообщения'
+  },
+  from: {
+    type: 'select',
+    options: from,
+    default: 'en',
+    label: 'Переводить из'
+  },
+  to: {
+    type: 'select',
+    options: to,
+    default: 'ru',
+    label: 'Переводить в'
+  }
 }
 
 export default new Store(
