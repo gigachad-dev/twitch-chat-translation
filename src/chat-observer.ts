@@ -7,7 +7,7 @@ export function chatObserver(callback: (message: HTMLElement) => void): Mutation
         const message = element as HTMLElement
         const chatMessage = message.classList.contains('chat-line__message')
         const highlightMessage = message.querySelector('.chat-line__message-highlight')
-        const { self } = Store.value
+        const { self } = Store.values
 
         if (chatMessage && (self || highlightMessage)) {
           callback(message)

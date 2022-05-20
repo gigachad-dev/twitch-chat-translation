@@ -10,7 +10,7 @@ interface TranslateResponse {
 }
 
 export async function enterEvent(event: MouseEvent): Promise<void> {
-  const { enabled } = Store.value
+  const { enabled } = Store.values
   if (!enabled) return
 
   const el = event.currentTarget as HTMLElement
@@ -29,7 +29,7 @@ export async function enterEvent(event: MouseEvent): Promise<void> {
   el.setAttribute('request', 'load')
 
   try {
-    const { to, from } = Store.value
+    const { to, from } = Store.values
     const { text } = await translate<TranslateResponse>(
       message, { to, from }
     )
@@ -44,7 +44,7 @@ export function clickEvent(event: MouseEvent): void {
   const el = event.currentTarget as HTMLElement
   const originalMessage = el.textContent!.split(': ')[1]
   const translatedMessage = el.getAttribute('aria-label') ?? ''
-  const { clipboard } = Store.value
+  const { clipboard } = Store.values
 
   navigator.clipboard.writeText(
     clipboard

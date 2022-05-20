@@ -1,4 +1,4 @@
-class Store<T extends object> {
+class Store<T> {
   private storeKey: string
   private initialValue: T
   private store: T
@@ -9,11 +9,11 @@ class Store<T extends object> {
     this.read()
   }
 
-  get value(): T {
+  get values(): T {
     return this.store
   }
 
-  read(): T {
+  private read(): T {
     const store = localStorage.getItem(this.storeKey)
 
     if (!store) {
