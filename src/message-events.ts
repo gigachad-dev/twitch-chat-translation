@@ -1,6 +1,6 @@
 import translate, { setCORS } from 'google-translate-api-browser'
-import { addTooltip } from './tooltip'
-import Store from './store'
+import { addTooltip } from './tooltip.js'
+import Store from './store.js'
 
 setCORS('https://proxy.crashmax.ru/')
 

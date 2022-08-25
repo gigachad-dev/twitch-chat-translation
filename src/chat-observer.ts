@@ -1,4 +1,4 @@
-import Store from './store'
+import Store from './store.js'
 
 export function chatObserver(callback: (message: HTMLElement) => void): MutationObserver {
   const observer = new MutationObserver((mutations) => {

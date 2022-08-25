@@ -1,5 +1,6 @@
-import Store, { configFields } from './store'
-import type { ValuesStore } from './store'
+import Store, { configFields } from './store.js'
+import type { ValuesStore } from './store.js'
+import './GM_config/index.js'
 
 GM_config.init({
   id: 'Options',

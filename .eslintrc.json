@@ -1,6 +1,0 @@
-{
-  "extends": "@crashmax/eslint-config",
-  "rules": {
-    "@typescript-eslint/unbound-method": "off"
-  }
-}

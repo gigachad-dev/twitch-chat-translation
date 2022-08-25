@@ -832,4 +832,4 @@ GM_configField.prototype = {
 };
 
 // Create default instance of GM_config
-var GM_config = new GM_configStruct();
+window.GM_config = new GM_configStruct();
