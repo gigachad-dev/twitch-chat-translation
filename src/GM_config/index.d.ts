@@ -26,7 +26,7 @@ GM_config is distributed under the terms of the GNU Lesser General Public Licens
 
 // Minimum TypeScript Version: 2.8
 
-type FieldValue = string | number | boolean;
+type FieldValue = string | number | boolean
 /** Valid types for Field `type` property */
 type FieldTypes =
   | 'text'
@@ -41,58 +41,61 @@ type FieldTypes =
   | 'integer'
   | 'float'
   | 'number'
-  | 'hidden';
+  | 'hidden'
 
 /** Init options where no custom types are defined */
 interface InitOptionsNoCustom {
   /** Used for this instance of GM_config */
-  id: string;
+  id: string
   /** Label the opened config window */
-  title?: string | HTMLElement;
-  fields: Record<string, Field>;
+  title?: string | HTMLElement
+  fields: Record<string, Field>
   /** Optional styling to apply to the menu */
-  css?: string;
+  css?: string
   /** Element to use for the config panel */
-  frame?: HTMLElement;
+  frame?: HTMLElement
 
   /** Handlers for different events */
   events?: {
-    init?: GM_configStruct['onInit'];
-    open?: GM_configStruct['onOpen'];
-    save?: GM_configStruct['onSave'];
-    close?: GM_configStruct['onClose'];
-    reset?: GM_configStruct['onReset'];
-  };
+    init?: GM_configStruct['onInit']
+    open?: GM_configStruct['onOpen']
+    save?: GM_configStruct['onSave']
+    close?: GM_configStruct['onClose']
+    reset?: GM_configStruct['onReset']
+  }
 }
 
 /** Init options where custom types are defined */
-interface InitOptionsCustom<CustomTypes extends string> extends Omit<InitOptionsNoCustom, 'fields'> {
-  fields: Record<string, Field<CustomTypes>>;
+interface InitOptionsCustom<CustomTypes extends string>
+  extends Omit<InitOptionsNoCustom, 'fields'> {
+  fields: Record<string, Field<CustomTypes>>
   /** Custom fields */
-  types: { [type in CustomTypes]: CustomType };
+  types: { [type in CustomTypes]: CustomType }
 }
 
 /** Init options where the types key is only required if custom types are used */
-type InitOptions<CustomTypes extends string> = InitOptionsNoCustom | InitOptionsCustom<CustomTypes>;
+type InitOptions<CustomTypes extends string> =
+  | InitOptionsNoCustom
+  | InitOptionsCustom<CustomTypes>
 
 interface Field<CustomTypes extends string = never> {
-  [key: string]: any;
+  [key: string]: any
   /** Display label for the field */
-  label?: string | HTMLElement;
+  label?: string | HTMLElement
   /** Type of input */
-  type: FieldTypes | CustomTypes;
+  type: FieldTypes | CustomTypes
   /** Text to show on hover */
-  title?: string;
+  title?: string
   /** Default value for field */
-  default?: FieldValue;
-  save?: boolean;
+  default?: FieldValue
+  save?: boolean
 }
 
 interface CustomType {
-  default?: FieldValue | null;
-  toNode?: GM_configField['toNode'];
-  toValue?: GM_configField['toValue'];
-  reset?: GM_configField['reset'];
+  default?: FieldValue | null
+  toNode?: GM_configField['toNode']
+  toValue?: GM_configField['toValue']
+  reset?: GM_configField['reset']
 }
 
 /* GM_configStruct and related */
@@ -101,10 +104,10 @@ interface CustomType {
 declare function GM_configInit<CustomTypes extends string>(
   config: GM_configStruct<CustomTypes>,
   // tslint:disable-next-line:no-unnecessary-generics
-  options: InitOptions<CustomTypes>,
-): void;
+  options: InitOptions<CustomTypes>
+): void
 
-declare function GM_configDefaultValue(type: FieldTypes): FieldValue;
+declare function GM_configDefaultValue(type: FieldTypes): FieldValue
 
 /** Create multiple GM_config instances */
 declare class GM_configStruct<CustomTypes extends string = never> {
@@ -112,26 +115,26 @@ declare class GM_configStruct<CustomTypes extends string = never> {
 
   /** Initialize GM_config */
   // tslint:disable-next-line:no-unnecessary-generics
-  init<CustomTypes extends string>(options: InitOptions<CustomTypes>): void;
+  init<CustomTypes extends string>(options: InitOptions<CustomTypes>): void
 
   /** Display the config panel */
-  open(): void;
+  open(): void
   /** Close the config panel */
-  close(): void;
+  close(): void
 
   /** Directly set the value of a field */
-  set(fieldId: string, value: FieldValue): void;
+  set(fieldId: string, value: FieldValue): void
   /**
    * Get a config value
    * @param getLive If true, runs `field.toValue()` instead of just getting `field.value`
    */
-  get(fieldId: string, getLive?: boolean): FieldValue;
+  get(fieldId: string, getLive?: boolean): FieldValue
   /** Save the current values */
-  save(): void;
+  save(): void
 
-  read(store?: string): any;
+  read(store?: string): any
 
-  write(store?: string, obj?: any): any;
+  write(store?: string, obj?: any): any
 
   /**
    *
@@ -142,11 +145,11 @@ declare class GM_configStruct<CustomTypes extends string = never> {
    * @todo Improve types based on
    * <https://github.com/sizzlemctwizzle/GM_config/blob/43fd0fe4/gm_config.js#L444-L455>
    */
-  create(...args: [string] | [string, any] | []): HTMLElement;
+  create(...args: [string] | [string, any] | []): HTMLElement
 
-  center(): void;
+  center(): void
 
-  remove(el: HTMLElement): void;
+  remove(el: HTMLElement): void
 
   /* Computed */
 
@@ -156,7 +159,7 @@ declare class GM_configStruct<CustomTypes extends string = never> {
    * Either calls `localStorage.setItem` or `GM_setValue`.
    * Shouldn't be directly called
    */
-  setValue(name: string, value: FieldValue): Promise<void> | void;
+  setValue(name: string, value: FieldValue): Promise<void> | void
   /**
    * Get a value. Shouldn't be directly called
    *
@@ -164,32 +167,37 @@ declare class GM_configStruct<CustomTypes extends string = never> {
    * @param def The default to return if the value is not defined.
    * Only for localStorage fallback
    */
-  getValue(name: string, def: FieldValue): FieldValue;
+  getValue(name: string, def: FieldValue): FieldValue
 
   /** Converts a JSON object to a string */
-  stringify(obj: any): string;
+  stringify(obj: any): string
   /**
    * Converts a string to a JSON object
    * @returns `undefined` if the string was an invalid object,
    * otherwise returns the parsed object
    */
-  parser(jsonString: string): any;
+  parser(jsonString: string): any
 
   /** Log a string with multiple fallbacks */
-  log(data: string): void;
+  log(data: string): void
 
   /* Created from GM_configInit */
   id: string
   title: string
   css: {
-    basic: string[];
-    basicPrefix: string;
-    stylish: string;
+    basic: string[]
+    basicPrefix: string
+    stylish: string
   }
   frame?: HTMLElement
   fields: Record<string, GM_configField>
   onInit?: (this: GM_configStruct) => void
-  onOpen?: (this: GM_configStruct, document: Document, window: Window, frame: HTMLElement) => void
+  onOpen?: (
+    this: GM_configStruct,
+    document: Document,
+    window: Window,
+    frame: HTMLElement
+  ) => void
   onSave?: (this: GM_configStruct, values: any) => void
   onClose?: (this: GM_configStruct) => void
   onReset?: (this: GM_configStruct) => void
@@ -207,10 +215,10 @@ declare class GM_configField {
     stored: FieldValue | undefined,
     id: string,
     customType: CustomType | undefined,
-    configId: string,
+    configId: string
   )
 
-  [key: string]: any;
+  [key: string]: any
   settings: Field
   id: string
   configId: string
@@ -223,16 +231,16 @@ declare class GM_configField {
 
   create: GM_configStruct['create']
 
-  toNode(this: GM_configField, configId?: string): HTMLElement;
+  toNode(this: GM_configField, configId?: string): HTMLElement
 
   /** Get value from field */
-  toValue(this: GM_configField): FieldValue | null;
+  toValue(this: GM_configField): FieldValue | null
 
-  reset(this: GM_configField): void;
+  reset(this: GM_configField): void
 
-  remove(el?: HTMLElement): void;
+  remove(el?: HTMLElement): void
 
-  reload(): void;
+  reload(): void
 
-  _checkNumberRange(num: number, warn: string): true | null;
+  _checkNumberRange(num: number, warn: string): true | null
 }

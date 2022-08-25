@@ -1,6 +1,6 @@
 import translate, { setCORS } from 'google-translate-api-browser'
-import { addTooltip } from './tooltip'
-import Store from './store'
+import Store from './store.js'
+import { addTooltip } from './tooltip.js'
 
 setCORS('https://proxy.crashmax.ru/')
 
@@ -18,8 +18,7 @@ export async function enterEvent(event: MouseEvent): Promise<void> {
   if (attr) return
 
   const textFragment = el.querySelectorAll<HTMLElement>('.text-fragment')
-  const message = Object
-    .values(textFragment)
+  const message = Object.values(textFragment)
     .map((fragment) => fragment.innerText)
     .join(' ')
     .trim()
@@ -30,9 +29,7 @@ export async function enterEvent(event: MouseEvent): Promise<void> {
 
   try {
     const { to, from } = Store.values
-    const { text } = await translate<TranslateResponse>(
-      message, { to, from }
-    )
+    const { text } = await translate<TranslateResponse>(message, { to, from })
 
     addTooltip(el, text)
   } catch (err) {
@@ -46,9 +43,5 @@ export function clickEvent(event: MouseEvent): void {
   const translatedMessage = el.getAttribute('aria-label') ?? ''
   const { clipboard } = Store.values
 
-  navigator.clipboard.writeText(
-    clipboard
-      ? translatedMessage
-      : originalMessage
-  )
+  navigator.clipboard.writeText(clipboard ? translatedMessage : originalMessage)
 }

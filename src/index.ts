@@ -1,6 +1,6 @@
-import { chatObserver } from './chat-observer'
-import { clickEvent, enterEvent } from './message-events'
-import './settings'
+import { chatObserver } from './chat-observer.js'
+import { clickEvent, enterEvent } from './message-events.js'
+import './settings.js'
 import './styles.scss'
 
 window.addEventListener('load', () => {
@@ -28,8 +28,9 @@ function chatMount(): () => void {
   })
 
   return () => {
-    const chat = document
-      .querySelector<HTMLElement>('.chat-scrollable-area__message-container')
+    const chat = document.querySelector<HTMLElement>(
+      '.chat-scrollable-area__message-container'
+    )
 
     if (chat) {
       observer.observe(chat, {

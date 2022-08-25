@@ -1,5 +1,0 @@
-/dist
-/public
-/server
-*.config.ts
-**/*.js
