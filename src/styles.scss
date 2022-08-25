@@ -1,40 +1,39 @@
-@import "microtip/microtip";
+@import 'microtip/microtip';
 
 :root {
   --microtip-font-size: 13px;
   --microtip-font-weight: 600;
 }
 
-[role~="tooltip"][data-microtip-size="fit"]::after {
+[role~='tooltip'][data-microtip-size='fit']::after {
   white-space: initial;
   width: 300px;
 }
 
-[aria-label][role~="tooltip"]::after {
+[aria-label][role~='tooltip']::after {
   background: var(--microtip-background);
   color: var(--microtip-color);
 }
 
-[role~="tooltip"][data-microtip-position|="top"]::before {
+[role~='tooltip'][data-microtip-position|='top']::before {
   background: var(--microtio-arrow);
 }
 
-[aria-label][role~="tooltip"]:focus::before,
-[aria-label][role~="tooltip"]:focus::after {
+[aria-label][role~='tooltip']:focus::before,
+[aria-label][role~='tooltip']:focus::after {
   opacity: 0;
 }
-
 
 html.tw-root--theme-light {
   --microtip-background: #111111;
   --microtip-color: #ffffff;
-  --microtio-arrow: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2236px%22%20height%3D%2212px%22%3E%3Cpath%20fill%3D%22black%22%20transform%3D%22rotate%280%29%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E")
-  no-repeat;
+  --microtio-arrow: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2236px%22%20height%3D%2212px%22%3E%3Cpath%20fill%3D%22black%22%20transform%3D%22rotate%280%29%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E')
+    no-repeat;
 }
 
 html.tw-root--theme-dark {
   --microtip-background: #ffffff;
   --microtip-color: #111111;
-  --microtio-arrow: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2236px%22%20height%3D%2212px%22%3E%3Cpath%20fill%3D%22white%22%20transform%3D%22rotate%280%29%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E")
-  no-repeat;
+  --microtio-arrow: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2236px%22%20height%3D%2212px%22%3E%3Cpath%20fill%3D%22white%22%20transform%3D%22rotate%280%29%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E')
+    no-repeat;
 }

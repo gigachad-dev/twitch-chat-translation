@@ -37,8 +37,21 @@ class Store<T> {
   }
 }
 
-export const to = ['en', 'ru', 'kk', 'uk', 'ja'] as const
-export const from = ['en', 'ru', 'kk', 'uk', 'ja', 'auto'] as const
+export const to = [
+  'en',
+  'ru',
+  'kk',
+  'uk',
+  'ja'
+] as const
+export const from = [
+  'en',
+  'ru',
+  'kk',
+  'uk',
+  'ja',
+  'auto'
+] as const
 
 type ToLangs = typeof to[number]
 type FromLangs = typeof from[number]
@@ -89,7 +102,4 @@ export const configFields: Record<string, Field> = {
   }
 }
 
-export default new Store(
-  'twitch-chat-translation',
-  initialStore
-)
+export default new Store('twitch-chat-translation', initialStore)

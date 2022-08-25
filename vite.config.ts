@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import { UserscriptPlugin } from 'vite-userscript-plugin'
-import { name, description, author, version } from './package.json'
+import { author, description, name, version } from './package.json'
 
 export default defineConfig({
   plugins: [
