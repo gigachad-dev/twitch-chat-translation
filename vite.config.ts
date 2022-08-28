@@ -1,12 +1,12 @@
 import { defineConfig } from 'vite'
-import { UserscriptPlugin } from 'vite-userscript-plugin'
+import Userscript from 'vite-userscript-plugin'
 import { author, description, name, version } from './package.json'
 
 export default defineConfig({
   plugins: [
-    UserscriptPlugin({
+    Userscript({
       entry: 'src/index.ts',
-      metadata: {
+      header: {
         name,
         description,
         author: author.name,

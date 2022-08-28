@@ -32,6 +32,6 @@
     "patch-package": "^6.4.7",
     "sass": "^1.54.5",
     "vite": "^3.0.9",
-    "vite-userscript-plugin": "^0.9.1"
+    "vite-userscript-plugin": "^1.1.0"
   }
 }

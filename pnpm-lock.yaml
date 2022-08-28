@@ -10,7 +10,7 @@ specifiers:
   redom: ^3.29.0
   sass: ^1.54.5
   vite: ^3.0.9
-  vite-userscript-plugin: ^0.9.1
+  vite-userscript-plugin: ^1.1.0
 
 dependencies:
   google-translate-api-browser: 1.1.71
@@ -18,13 +18,13 @@ dependencies:
   redom: 3.29.0
 
 devDependencies:
-  '@crashmax/prettier-config': 2.0.3_p2qvazo4ctd7rmzb34o4gfezrm
+  '@crashmax/prettier-config': 2.0.3_kh24rxe7vdex46rsdybx5uv35u
   '@crashmax/tsconfig': 1.0.2
   '@types/tampermonkey': 4.0.5
   patch-package: 6.4.7
   sass: 1.54.5
   vite: 3.0.9_sass@1.54.5
-  vite-userscript-plugin: 0.9.1_ervoin2f5aqnloiududamp6zqu
+  vite-userscript-plugin: 1.1.0_ervoin2f5aqnloiududamp6zqu
 
 packages:
 
@@ -272,7 +272,7 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
-  /@crashmax/prettier-config/2.0.3_p2qvazo4ctd7rmzb34o4gfezrm:
+  /@crashmax/prettier-config/2.0.3_kh24rxe7vdex46rsdybx5uv35u:
     resolution: {integrity: sha512-ednP9+N+lNBDjDH20GlTsOyt2PqPx3flp5vYD5aVljpLCXfP4Mr33QXg35NdMQ3CiNB8uL9wfvhWrVJ7bZOF6g==}
     peerDependencies:
       '@trivago/prettier-plugin-sort-imports': ^3.3.0
@@ -281,7 +281,7 @@ packages:
     dependencies:
       '@trivago/prettier-plugin-sort-imports': 3.3.0_prettier@2.7.1
       prettier: 2.7.1
-      prettier-plugin-multiline-arrays: 1.1.0
+      prettier-plugin-multiline-arrays: 1.1.1
     dev: true
 
   /@crashmax/tsconfig/1.0.2:
@@ -376,8 +376,8 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /augment-vir/2.0.2:
-    resolution: {integrity: sha512-DAU4/MEuL2Kk5CbF3jZlzR0YVfU9Fhrg8zKp9p/GenTAlaE6/bYpcTphoic0sSaknBtkjWYfQxk+7fRqlm6bhA==}
+  /augment-vir/2.5.0:
+    resolution: {integrity: sha512-eGciW1fxa7KX1W392w/py8UGknQ0J77oukGbICZU+KU01a9Cl/fyLwMZUx2tSkE+jFjAewDr5O++OvLjEXY+uw==}
     dependencies:
       fs-extra: 10.1.0
     dev: true
@@ -420,8 +420,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001382
-      electron-to-chromium: 1.4.230
+      caniuse-lite: 1.0.30001383
+      electron-to-chromium: 1.4.233
       node-releases: 2.0.6
       update-browserslist-db: 1.0.5_browserslist@4.21.3
     dev: true
@@ -434,8 +434,13 @@ packages:
       node-gyp-build: 4.5.0
     dev: true
 
-  /caniuse-lite/1.0.30001382:
-    resolution: {integrity: sha512-2rtJwDmSZ716Pxm1wCtbPvHtbDWAreTPxXbkc5RkKglow3Ig/4GNGazDI9/BVnXbG/wnv6r3B5FEbkfg9OcTGg==}
+  /bytes/3.0.0:
+    resolution: {integrity: sha512-pMhOfFDPiv9t5jjIXkHosWmkSyQbvsgEVNkz0ERHbuLh2T/7j4Mqqpz523Fe8MVY89KC6Sh/QfS2sM+SjgFDcw==}
+    engines: {node: '>= 0.8'}
+    dev: true
+
+  /caniuse-lite/1.0.30001383:
+    resolution: {integrity: sha512-swMpEoTp5vDoGBZsYZX7L7nXHe6dsHxi9o6/LKf/f0LukVtnrxly5GVb/fWdCDTqi/yw6Km6tiJ0pmBacm0gbg==}
     dev: true
 
   /chalk/2.4.2:
@@ -478,6 +483,11 @@ packages:
 
   /concat-map/0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
+    dev: true
+
+  /content-disposition/0.5.2:
+    resolution: {integrity: sha512-kRGRZw3bLlFISDBgwTSA1TMBFN6J6GWDeubmDE3AF+3+yXL8hTWv8r5rkLbqYXY4RjPk/EzHnClI3zQf1cFmHA==}
+    engines: {node: '>= 0.6'}
     dev: true
 
   /convert-source-map/1.8.0:
@@ -538,8 +548,13 @@ packages:
       ms: 2.1.2
     dev: true
 
-  /electron-to-chromium/1.4.230:
-    resolution: {integrity: sha512-3pwjAK0qHSDN9+YAF4fJknsSruP7mpjdWzUSruIJD/JCH77pEh0SorEyb3xVaKkfwk2tzjOt2D8scJ0KAdfXLA==}
+  /define-lazy-prop/2.0.0:
+    resolution: {integrity: sha512-Ds09qNh8yw3khSjiJjiUInaGX9xlqZDY7JVryGxdxV7NPeuqQfplOpQ66yJFZut3jLa5zOwkXw1g9EI2uKh4Og==}
+    engines: {node: '>=8'}
+    dev: true
+
+  /electron-to-chromium/1.4.233:
+    resolution: {integrity: sha512-ejwIKXTg1wqbmkcRJh9Ur3hFGHFDZDw1POzdsVrB2WZjgRuRMHIQQKNpe64N/qh3ZtH2otEoRoS+s6arAAuAAw==}
     dev: true
 
   /es5-ext/0.10.62:
@@ -792,6 +807,12 @@ packages:
       type: 2.7.2
     dev: true
 
+  /fast-url-parser/1.1.3:
+    resolution: {integrity: sha512-5jOCVXADYNuRkKFzNJ0dCCewsZiYo0dz8QNYljkOpFC6r2U4OBmKtvm/Tsuh4w1YYdDqDb31a8TVhBJ2OJKdqQ==}
+    dependencies:
+      punycode: 1.4.1
+    dev: true
+
   /fill-range/7.0.1:
     resolution: {integrity: sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==}
     engines: {node: '>=8'}
@@ -1040,6 +1061,24 @@ packages:
     resolution: {integrity: sha512-oah38eH5vSHVFP6yXjbKWOYt92mav++0j3zh844h1vhOscqEg7Rf4agDEIwUTFCcAPPdlhYUQMe6eZfHgD+4oQ==}
     dev: false
 
+  /mime-db/1.33.0:
+    resolution: {integrity: sha512-BHJ/EKruNIqJf/QahvxwQZXKygOQ256myeN/Ew+THcAa5q+PjyTTMMeNQC4DZw5AwfvelsUrA6B67NKMqXDbzQ==}
+    engines: {node: '>= 0.6'}
+    dev: true
+
+  /mime-types/2.1.18:
+    resolution: {integrity: sha512-lc/aahn+t4/SWV/qcmumYjymLsWfN3ELhpmVuUFjgsORruuZPVSwAQryq+HHGvO/SI2KVX26bx+En+zhM8g8hQ==}
+    engines: {node: '>= 0.6'}
+    dependencies:
+      mime-db: 1.33.0
+    dev: true
+
+  /minimatch/3.0.4:
+    resolution: {integrity: sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==}
+    dependencies:
+      brace-expansion: 1.1.11
+    dev: true
+
   /minimatch/3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
     dependencies:
@@ -1099,6 +1138,15 @@ packages:
       is-wsl: 2.2.0
     dev: true
 
+  /open/8.4.0:
+    resolution: {integrity: sha512-XgFPPM+B28FtCCgSb9I+s9szOC1vZRSwgWsRUA5ylIxRTgKozqjOCrVOqGsYABPYK5qnfqClxZTFBa8PKt2v6Q==}
+    engines: {node: '>=12'}
+    dependencies:
+      define-lazy-prop: 2.0.0
+      is-docker: 2.2.1
+      is-wsl: 2.2.0
+    dev: true
+
   /os-tmpdir/1.0.2:
     resolution: {integrity: sha512-D2FR03Vir7FIu45XBY20mTb+/ZSWB00sjU9jdQXt83gDrI4Ztz5Fs7/yy74g2N5SVQY4xY1qDr4rNddwYRVX0g==}
     engines: {node: '>=0.10.0'}
@@ -1129,6 +1177,10 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /path-is-inside/1.0.2:
+    resolution: {integrity: sha512-DUWJr3+ULp4zXmol/SZkFf3JGsS9/SIv+Y3Rt93/UjPpDpklB5f1er4O3POIbUuUJ3FXgqte2Q7SrU6zAqwk8w==}
+    dev: true
+
   /path-key/2.0.1:
     resolution: {integrity: sha512-fEHGKCSmUSDPv4uoj8AlD+joPlq3peND+HRYyxFz4KPw4z926S/b8rIuFs2FYJg3BwsxJf6A9/3eIdLaYC+9Dw==}
     engines: {node: '>=4'}
@@ -1136,6 +1188,10 @@ packages:
 
   /path-parse/1.0.7:
     resolution: {integrity: sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==}
+    dev: true
+
+  /path-to-regexp/2.2.1:
+    resolution: {integrity: sha512-gu9bD6Ta5bwGrrU8muHzVOBFFREpp2iRkVfhBJahwJ6p6Xw20SjT0MxLnwkjOibQmGSYhiUnf2FLe7k+jcFmGQ==}
     dev: true
 
   /picocolors/1.0.0:
@@ -1156,10 +1212,10 @@ packages:
       source-map-js: 1.0.2
     dev: true
 
-  /prettier-plugin-multiline-arrays/1.1.0:
-    resolution: {integrity: sha512-Pp5JCJGXj2pBxR9o0bLNSxbHd0qOjgzTCXn9oD8Wkevgz/KnXJA6JVzt28OgXznzOgPhCCXlUqEqmEkGVCPBUw==}
+  /prettier-plugin-multiline-arrays/1.1.1:
+    resolution: {integrity: sha512-nMj6aQh9zBg4TmN586QiUAoig2IdqZ2JD5miylKViYnQJNBIywmSnL1plF6A3gZqXA7LvHiv0G/3uPTj/qUbEQ==}
     dependencies:
-      augment-vir: 2.0.2
+      augment-vir: 2.5.0
     dev: true
 
   /prettier/2.7.1:
@@ -1168,11 +1224,20 @@ packages:
     hasBin: true
     dev: true
 
+  /punycode/1.4.1:
+    resolution: {integrity: sha512-jmYNElW7yvO7TV33CjSmvSiE2yco3bV2czu/OzDKdMNVZQWfxCblURLhf+47syQRBntjfLdd/H0egrzIG+oaFQ==}
+    dev: true
+
   /querystring/0.2.1:
     resolution: {integrity: sha512-wkvS7mL/JMugcup3/rMitHmd9ecIGd2lhFhK9N3UUQ450h66d1r3Y9nvXzQAW1Lq+wyx61k/1pfKS5KuKiyEbg==}
     engines: {node: '>=0.4.x'}
     deprecated: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
     dev: false
+
+  /range-parser/1.2.0:
+    resolution: {integrity: sha512-kA5WQoNVo4t9lNx2kQNFCxKeBl5IbbSNBl1M/tLkw9WCn+hxNBAW5Qh8gdhs63CJnhjJ2zQWFoqPJP2sK1AV5A==}
+    engines: {node: '>= 0.6'}
+    dev: true
 
   /readdirp/3.6.0:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
@@ -1237,6 +1302,19 @@ packages:
   /semver/6.3.0:
     resolution: {integrity: sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==}
     hasBin: true
+    dev: true
+
+  /serve-handler/6.1.3:
+    resolution: {integrity: sha512-FosMqFBNrLyeiIDvP1zgO6YoTzFYHxLDEIavhlmQ+knB2Z7l1t+kGLHkZIDN7UVWqQAmKI3D20A6F6jo3nDd4w==}
+    dependencies:
+      bytes: 3.0.0
+      content-disposition: 0.5.2
+      fast-url-parser: 1.1.3
+      mime-types: 2.1.18
+      minimatch: 3.0.4
+      path-is-inside: 1.0.2
+      path-to-regexp: 2.2.1
+      range-parser: 1.2.0
     dev: true
 
   /shebang-command/1.2.0:
@@ -1350,15 +1428,18 @@ packages:
     resolution: {integrity: sha512-4+wkEYLBbWxqTahEsWrhxepcoVOJ+1z5PGIjPZxRkytcdSUaNjIjBM7Xn8E+pdSuV7SzvWovBFA54FO0JSoqhA==}
     dev: true
 
-  /vite-userscript-plugin/0.9.1_ervoin2f5aqnloiududamp6zqu:
-    resolution: {integrity: sha512-0nq4g23RC14nQsqEzJ5VBptcVGu+yzTuYS73H66VRQ66XpQH5szA6K1G5+fZInqT1WoCPeY/PIa0PYTtIkfbCQ==}
+  /vite-userscript-plugin/1.1.0_ervoin2f5aqnloiududamp6zqu:
+    resolution: {integrity: sha512-MX+J6EiP5ecs2ywIYSle7CMShWskUla68wGkmwZSrNoibC1mHJs8VUE5bb47Tu6h9CzygPjulTig1PMJE8OeXQ==}
     peerDependencies:
       '@types/tampermonkey': '>=4.0.0'
       vite: '>=2.9.0'
     dependencies:
       '@types/tampermonkey': 4.0.5
       get-port: 6.1.2
+      open: 8.4.0
+      picocolors: 1.0.0
       sanitize-filename: 1.6.3
+      serve-handler: 6.1.3
       vite: 3.0.9_sass@1.54.5
       websocket: 1.0.34
     transitivePeerDependencies:
