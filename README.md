@@ -19,7 +19,7 @@
 
 ### Install this userscript
 
-> [twitch-chat-translation.user.js](https://crashmax-dev.github.io/twitch-chat-translation/twitch-chat-translation.user.js)
+> [twitch-chat-translation.user.js](https://gigachad-dev.github.io/twitch-chat-translation/twitch-chat-translation.user.js)
 
 ## Development
 
