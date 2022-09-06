@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "type": "module",
   "description": "twitch-chat-translation",
-  "homepage": "https://crashmax-dev.github.io/twitch-chat-translation/",
+  "homepage": "https://gigachad-dev.github.io/twitch-chat-translation/",
   "scripts": {
     "dev": "vite build --watch",
     "build": "vite build",
@@ -18,20 +18,20 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/crashmax-dev/twitch-chat-translation.git"
+    "url": "git+https://github.com/gigachad-dev/twitch-chat-translation.git"
   },
   "dependencies": {
     "google-translate-api-browser": "^1.1.71",
     "microtip": "^0.2.2",
-    "redom": "^3.29.0"
+    "redom": "^3.29.1"
   },
   "devDependencies": {
     "@crashmax/prettier-config": "^2.0.3",
     "@crashmax/tsconfig": "^1.0.2",
     "@types/tampermonkey": "^4.0.5",
     "patch-package": "^6.4.7",
-    "sass": "^1.54.5",
-    "vite": "^3.0.9",
-    "vite-userscript-plugin": "^1.1.0"
+    "sass": "^1.54.8",
+    "vite": "^3.1.0",
+    "vite-userscript-plugin": "^1.2.0"
   }
 }

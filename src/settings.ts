@@ -26,3 +26,19 @@ GM_config.init({
 GM_registerMenuCommand('Настройки', () => {
   GM_config.open()
 })
+
+
+const myField = new GM_configField(
+  {
+    label: 'My Field',
+    type: 'text',
+    default: 'Default Text'
+  },
+  undefined,
+  'MyField',
+  undefined,
+  'MyConfig'
+)
+
+
+GM_config.fields['aefaef']!.toNode('MyConfig')
