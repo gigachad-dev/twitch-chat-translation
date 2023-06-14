@@ -21,17 +21,18 @@
     "url": "git+https://github.com/gigachad-dev/twitch-chat-translation.git"
   },
   "dependencies": {
-    "google-translate-api-browser": "^1.1.71",
+    "@gm-api/config": "^0.1.0",
+    "google-translate-api-browser": "^3.0.1",
     "microtip": "^0.2.2",
     "redom": "^3.29.1"
   },
   "devDependencies": {
-    "@crashmax/prettier-config": "^2.0.3",
-    "@crashmax/tsconfig": "^1.0.2",
-    "@types/tampermonkey": "^4.0.5",
-    "patch-package": "^6.4.7",
-    "sass": "^1.54.8",
-    "vite": "^3.1.0",
-    "vite-userscript-plugin": "^1.2.0"
+    "@crashmax/prettier-config": "^3.2.1",
+    "@crashmax/tsconfig": "^2.0.1",
+    "@types/tampermonkey": "^4.0.10",
+    "patch-package": "^7.0.0",
+    "sass": "^1.63.3",
+    "vite": "^4.3.9",
+    "vite-userscript-plugin": "^1.8.1"
   }
 }

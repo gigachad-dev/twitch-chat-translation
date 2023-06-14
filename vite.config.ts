@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import Userscript from 'vite-userscript-plugin'
-import { author, description, name, version, homepage } from './package.json'
+import { author, description, homepage, name, version } from './package.json'
 
 export default defineConfig({
   plugins: [
@@ -13,6 +13,9 @@ export default defineConfig({
         description,
         author: author.name,
         match: 'https://*.twitch.tv/*'
+      },
+      server: {
+        port: 3000
       }
     })
   ]
