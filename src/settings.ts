@@ -1,6 +1,35 @@
 import './GM_config/index.js'
-import Store, { configFields } from './store.js'
-import type { ValuesStore } from './store.js'
+import { fromLangs, storage, StorageValues, toLangs } from './storage.js'
+
+export const configFields: Record<string, Field> = {
+  enabled: {
+    type: 'checkbox',
+    default: storage.initialValues.enabled,
+    label: 'Вкл/Выкл перевод'
+  },
+  clipboard: {
+    type: 'checkbox',
+    default: storage.initialValues.clipboard,
+    label: 'Копировать текст сообщения (оригинал/перевод)'
+  },
+  self: {
+    type: 'checkbox',
+    default: storage.initialValues.self,
+    label: 'Переводить собственные сообщения'
+  },
+  from: {
+    type: 'select',
+    options: fromLangs,
+    default: 'en',
+    label: 'Переводить из'
+  },
+  to: {
+    type: 'select',
+    options: toLangs,
+    default: 'ru',
+    label: 'Переводить в'
+  }
+}
 
 GM_config.init({
   id: 'Options',
@@ -13,12 +42,12 @@ GM_config.init({
           arr[id] = value
           return arr
         },
-        {} as ValuesStore
+        {} as StorageValues
       )
 
-      Store.write(options)
+      storage.write(options)
     },
-    reset: () => Store.write()
+    reset: () => storage.write()
   },
   fields: configFields
 })
@@ -26,19 +55,3 @@ GM_config.init({
 GM_registerMenuCommand('Настройки', () => {
   GM_config.open()
 })
-
-
-const myField = new GM_configField(
-  {
-    label: 'My Field',
-    type: 'text',
-    default: 'Default Text'
-  },
-  undefined,
-  'MyField',
-  undefined,
-  'MyConfig'
-)
-
-
-GM_config.fields['aefaef']!.toNode('MyConfig')

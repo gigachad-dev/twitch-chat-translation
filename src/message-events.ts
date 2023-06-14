@@ -1,16 +1,11 @@
-import translate, { setCORS } from 'google-translate-api-browser'
-import Store from './store.js'
+import { setCORS } from 'google-translate-api-browser'
+import { storage } from './storage.js'
 import { addTooltip } from './tooltip.js'
 
-setCORS('https://proxy.crashmax.ru/')
-
-interface TranslateResponse {
-  text: string
-  pronunciation: string
-}
+const translate = setCORS('https://proxy.crashmax.ru/')
 
 export async function enterEvent(event: MouseEvent): Promise<void> {
-  const { enabled } = Store.values
+  const { enabled, to, from } = storage.values
   if (!enabled) return
 
   const el = event.currentTarget as HTMLElement
@@ -24,13 +19,10 @@ export async function enterEvent(event: MouseEvent): Promise<void> {
     .trim()
 
   if (!message) return
-
   el.setAttribute('request', 'load')
 
   try {
-    const { to, from } = Store.values
-    const { text } = await translate<TranslateResponse>(message, { to, from })
-
+    const { text } = await translate(message, { to, from })
     addTooltip(el, text)
   } catch (err) {
     addTooltip(el, (err as Error).message)
@@ -39,9 +31,8 @@ export async function enterEvent(event: MouseEvent): Promise<void> {
 
 export function clickEvent(event: MouseEvent): void {
   const el = event.currentTarget as HTMLElement
-  const originalMessage = el.textContent!.split(': ')[1]
+  const originalMessage = el.textContent!.split(': ')[1]!
   const translatedMessage = el.getAttribute('aria-label') ?? ''
-  const { clipboard } = Store.values
-
+  const { clipboard } = storage.values
   navigator.clipboard.writeText(clipboard ? translatedMessage : originalMessage)
 }

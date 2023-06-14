@@ -1,4 +1,4 @@
-import Store from './store.js'
+import { storage } from './storage.js'
 
 export function chatObserver(
   callback: (message: HTMLElement) => void
@@ -11,8 +11,7 @@ export function chatObserver(
         const highlightMessage = message.querySelector(
           '.chat-line__message-highlight'
         )
-        const { self } = Store.values
-
+        const { self } = storage.values
         if (chatMessage && (self || highlightMessage)) {
           callback(message)
         }
